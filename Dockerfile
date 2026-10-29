@@ -1,7 +1,7 @@
 FROM maven:3.8.6-openjdk-8 AS builder
 WORKDIR /app
 COPY . .
-RUN mvn clean package
+RUN mvn clean pakage
 FROM tomcat:9.0-jdk8-openjdk
 RUN rm -rf /usr/local/tomcat/webapps/*
 COPY --from=builder /app/target/*.war /usr/local/tomcat/webapps/ROOT.war
